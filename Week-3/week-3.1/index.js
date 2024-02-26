@@ -28,6 +28,15 @@ app.post('/api/v1/health-checkup', (req, res) => {
     // res.send("your heart is Healthy");
 });
 
+//global catches == another middlewaare taht take care of any exceptin
+// and gives client a pretty good response 
+app.use(function(err,req,res,next){
+    res.json({
+        msg:"something went wrong"
+    })
+});
+
+
 app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`);
 });
