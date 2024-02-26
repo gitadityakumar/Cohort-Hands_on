@@ -1,15 +1,21 @@
 const express = require('express');
+const zod = require('zod');
 const app = express();
 const port = 3000;
+
+//creating zod schema for input validation
+
+const schema = zod.array(zod.number());
 
 app.use(express.json());
 
 //input validation
 app.post('/api/v1/health-checkup', (req, res) => {
     const kidneys = req.body.kidneys;
-    const kidneyLength = kidneys.length;
-
-    res.send("you have "+ kidneyLength+ "kidneys");
+    const response = schema.safeParse(kidneys);
+    res.send({
+        response
+    })
 
     // if(username != "Aditya" || password != "pass"){
     //     res.status(400).json({"msg":"someting worng with inputs"})
