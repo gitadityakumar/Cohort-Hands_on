@@ -5,22 +5,24 @@
   <div id="buttonParent">
   </div>
   <script>
+    //scope of bettement here this code is creating and deleting counter element but in react updation works on the basis of compare of VD and AD , modify these fn to update element . 
+    //state of component
     let state = {
       count: 0
     }
-
+// click fn of component
     function onButtonPress() {
       state.count++;
       buttonComponentReRender()
     }
-
+// a render fn that will render fianl component 
     function buttonComponentReRender() {
       document.getElementById("buttonParent").innerHTML = "";
       const component = buttonComponent(state.count);
       document.getElementById("buttonParent").appendChild(component);
     //   console.log(component);
     }
-
+//a fn that take state as input and gives a component as a output
     function buttonComponent(count) {
       const button = document.createElement("button");
       button.innerHTML = `Counter ${count}`;
