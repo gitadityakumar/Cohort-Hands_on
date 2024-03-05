@@ -1,19 +1,22 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+
 // import './App.css'
 
-let state = {
-  count : 0 
+let state ={
+  count: 0
 }
 
 function App() {
- 
+
+  function onclickhandler(state){
+    state.count = state.count + 1;
+  }
+
   return (
     <>
-      <div>
-        <button
-      </div>
+     <div>
+      Hi There! <br></br>
+      <button onClick={onclickhandler}>count:{state.count}</button>
+     </div>
         
     </>
   )
