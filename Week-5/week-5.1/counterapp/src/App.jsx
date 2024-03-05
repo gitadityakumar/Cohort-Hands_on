@@ -1,21 +1,24 @@
 
 // import './App.css'
 
-let state ={
-  count: 0
-}
+import { useState } from "react"
+
+
 
 function App() {
 
-  function onclickhandler(state){
-    state.count = state.count + 1;
+  const [count, setCount] = useState(0);
+
+  function onclickhandler(){
+    setCount(count + 1);
   }
 
   return (
     <>
      <div>
       Hi There! <br></br>
-      <button onClick={onclickhandler}>count:{state.count}</button>
+      <button onClick={onclickhandler}>counter: {count}</button>
+      
      </div>
         
     </>
