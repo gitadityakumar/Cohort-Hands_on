@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 // import './App.css'
 
@@ -9,20 +10,32 @@ function App() {
 
   const [count, setCount] = useState(0);
 
-  function onclickhandler(){
-    setCount(count + 1);
-  }
+  
 
   return (
     <>
      <div>
       Hi There! <br></br>
-      <button onClick={onclickhandler}>counter: {count}</button>
+      <CustomButton count={count} setCount={setCount}></CustomButton><br></br>
+      <CustomButton count={count +1} setCount={setCount}></CustomButton><br />
+      <CustomButton count={count-1} setCount={setCount}></CustomButton><br />
+      <CustomButton count={count*10} setCount={setCount}></CustomButton><br />
       
      </div>
         
     </>
   )
+}
+
+function CustomButton(props){
+
+  function onclickhanderr(){
+    // eslint-disable-next-line react/prop-types
+    props.setCount(props.count +1);
+  }
+  return (<>
+    <button onClick={onclickhanderr}>Counter {props.count}</button>
+    </>)
 }
 
 export default App
