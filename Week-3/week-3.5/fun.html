@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100px;
+            /* height: 100px; */
+        }
+
+        .element {
+            width: 16px;
+            height: 16px; /* Changed to make it a square */
+            padding: 3px;
+            background-color: black;
+            margin: 5px; /* Add some margin for spacing */
+            transition: background-color 0.3s ease; /* Smooth transition for color change */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="element">1</div>
+        <div class="element">2</div>
+        <div class="element">3</div>
+        <div class="element">4</div>
+        <div class="element">5</div>
+        <div class="element">6</div>
+    </div>
+
+    <script>
+        // Get all elements with the class "element"
+        const elements = document.querySelectorAll('.element');
+        
+        // Add event listener to each element
+        elements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                // Generate random color
+                const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                // Apply random color to background
+                element.style.backgroundColor = randomColor;
+            });
+        });
+    </script>
+</body>
+</html>
