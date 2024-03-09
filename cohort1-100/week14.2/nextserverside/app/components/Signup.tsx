@@ -20,7 +20,7 @@ export function Signup() {
                     <div className="pt-2">
                         <LabelledInput onChange={(e) => {
                             setUsername(e.target.value);
-                        }} label="Username" placeholder="harkirat@gmail.com" />
+                        }} label="Username" placeholder="Adityakumar@gmail.com" />
                         <LabelledInput onChange={(e) => {
                             setPassword(e.target.value)
                         }} label="Password" type={"password"} placeholder="123456" />
