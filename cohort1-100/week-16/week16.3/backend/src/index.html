@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button {
+            margin: 5px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #userData {
+            margin-top: 20px;
+        }
+
+        #userData p {
+            margin: 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<form>
+    <input id="username" type="text" placeholder="Username" />
+    <input id="password" type="password" placeholder="Password" />
+    <button id="loginButton">Submit</button>
+    <button id="logoutButton">Logout</button>
+    <div id="userData"></div>
+</form>
+
+<script>
+
+    document.getElementById('loginButton').addEventListener('click', async () => {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        try {
+            await axios.post(`/signin`, {
+                username,
+                password
+            });
+            alert("You are logged in");
+        } catch (error) {
+            console.error('Login failed:', error);
+            alert("Login failed");
+        }
+    });
+
+    document.getElementById('logoutButton').addEventListener('click', () => {
+        axios.post(`/logout`, {}, {
+            withCredentials: true,
+        }).then(() => {
+            console.log('Logged out successfully.');
+        }).catch(error => {
+            console.error('Logout failed:', error);
+        });
+    });
+
+    function fetchUserData() {
+        axios.get(`/user`, {
+            withCredentials: true,
+        }).then(response => {
+            const userData = response.data;
+            displayUserData(userData);
+        }).catch(error => {
+            console.error('Failed to fetch user data:', error);
+        });
+    }
+
+    function displayUserData(userData) {
+        const userDataDiv = document.getElementById('userData');
+        // Example: Assumes userData contains a 'name' and 'email'. Adapt based on your actual user data structure.
+        userDataDiv.innerHTML = `<p>Your id is: ${userData.userId}</p>`;
+    }
+    fetchUserData();
+</script>
+
+</body>
+</html>
