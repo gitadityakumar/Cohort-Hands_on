@@ -29,6 +29,11 @@ const handler = NextAuth({
           password: { label: 'Password', type: 'Password', placeholder: 'Password' },
         },
         async authorize(credentials: any) {
+          console.log(credentials);
+
+//do validation from db and then return something 
+// here i am allowing everyone to login by returing hardcoded values
+          
             
             return {
                 id: "user1"
