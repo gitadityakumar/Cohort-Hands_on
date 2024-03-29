@@ -1,4 +1,5 @@
-
+import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from 'next-auth/providers/credentials';
 export const NEXT_AUTH = {
     providers: [
@@ -21,7 +22,16 @@ export const NEXT_AUTH = {
                   email:"aditya@gmail.com"
               };
           },
+        }),
+        GoogleProvider({
+          clientId: process.env.GOOGLE_CLIENT_ID || "",
+          clientSecret: process.env.GOOGLE_CLIENT_SECRET || ""
+        }),
+        GitHubProvider({
+          clientId: process.env.GITHUB_ID || "",
+          clientSecret: process.env.GITHUB_SECRET || ""
         })
+        
     ],
     secret: process.env.NEXTAUTH_SECRET,
     //callbacks for extra info(persist more data) or blocking some explicit user
