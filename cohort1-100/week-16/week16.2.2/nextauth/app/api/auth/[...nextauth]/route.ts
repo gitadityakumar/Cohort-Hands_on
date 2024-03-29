@@ -36,12 +36,31 @@ const handler = NextAuth({
           
             
             return {
-                id: "user1"
+                id: "1",
+                name:"Aditya kumar",
+                email:"aditya@gmail.com"
             };
         },
       })
   ],
-  secret: process.env.NEXTAUTH_SECRET
+  secret: process.env.NEXTAUTH_SECRET,
+  //callbacks for extra info(persist more data) or blocking some explicit user
+  callbacks: {
+    // jwt: async ({ user, token }: any) => {
+    //   if (user) {
+    //       token.uid = user.id;
+    //   }
+    //   return token;
+    // },
+  session: ({ session, token, user }: any) => {
+    console.log(session);
+      if (session.user && session) {
+          session.user.id = token.sub
+      }
+      return session
+  }
+},
+
 })
 
 export { handler as GET, handler as POST }
