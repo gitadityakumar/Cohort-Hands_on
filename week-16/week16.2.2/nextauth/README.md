@@ -16,7 +16,5 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-[]
-
-
+![nextauth](https://github.com/gitadityakumar/Cohort-Hands_on/assets/100260222/61863580-37c9-4251-9954-225ed0ba66a7)
 
