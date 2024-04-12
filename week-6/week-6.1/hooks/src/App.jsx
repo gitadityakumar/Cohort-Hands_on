@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from 'axios';
 function App() {
   const [todos, setTodos] = useState([]);
 
@@ -7,13 +8,17 @@ function App() {
 useEffect(() => {
 
   setInterval(() => {
-    fetch("https://sum-server.100xdevs.com/todos")
-  .then(async function(res){
-    const json = await res.json();
-    setTodos(json.todos);
-  })
-    
+    axios.get("https://sum-server.100xdevs.com/todos")
+      .then(function(response) {
+        const todos = response.data.todos;
+        setTodos(todos);
+      })
+      .catch(function(error) {
+        console.error('Error fetching todos:', error);
+      });
   }, 10000);
+  
+ 
   
 }, [])
   
