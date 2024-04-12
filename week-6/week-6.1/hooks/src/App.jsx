@@ -2,15 +2,20 @@ import { useState, useEffect } from "react";
 function App() {
   const [todos, setTodos] = useState([]);
 
-  useEffect(() => {
+// pooling or running a code again & again for always 
+//we can use setInterval for this 
+useEffect(() => {
 
+  setInterval(() => {
     fetch("https://sum-server.100xdevs.com/todos")
-    .then(async function(res){
-      const json = await res.json();
-      setTodos(json.todos);
-    })
+  .then(async function(res){
+    const json = await res.json();
+    setTodos(json.todos);
+  })
     
-  }, [])
+  }, 10000);
+  
+}, [])
   
   
 
