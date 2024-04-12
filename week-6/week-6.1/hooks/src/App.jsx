@@ -12,13 +12,14 @@ useEffect(() => {
       .then(function(response) {
         const todos = response.data.todos;
         setTodos(todos);
+        console.log("got the data");
       })
       .catch(function(error) {
         console.error('Error fetching todos:', error);
       });
   }, 10000);
   
- 
+  return () => clearInterval(1000);
   
 }, [])
   
