@@ -10,11 +10,13 @@ function App() {
 
   return (
     <div>
+     
+      <Todo id={idupdate} />
+
       <button onClick={() => idUpdater(1)}>1</button>
       <button onClick={() => idUpdater(2)}>2</button>
       <button onClick={() => idUpdater(3)}>3</button>
       <button onClick={() => idUpdater(4)}>4</button>
-      <Todo id={idupdate} />
     </div>
   );
 }

@@ -1,5 +1,7 @@
-# useMemo Hook
+## useMemo Hook
 
-1. problem with this app is when we click on count button it render counter and in order to doing that it run the logic again of calculating sum of giving range 
+This app is solely designed for utilizing the `useMemo` hook. However, there are alternative methods to address the underlying issue.
 
-solution: we'll use useMemo hook 
+The problem with this app arises when we click the count button, triggering a re-render of the counter. Each time this happens, the logic recalculates the sum within the given range.
+
+**Solution**: We'll employ the `useMemo` hook. Now, our component renders, but not every time the input changes. Instead, it performs the expensive operation only when the input changes, updating the sum accordingly. Even as the counter changes, the app still re-renders, yet the sum remains memoized.
