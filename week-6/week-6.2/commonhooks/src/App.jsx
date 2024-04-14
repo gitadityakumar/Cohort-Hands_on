@@ -1,32 +1,32 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    axios.get('https://sum-server.100xdevs.com/todos')
-    .then(function(response){
-      setTodos(response.data.todos)
-    })
-    
-  }, [])
-  
-
-  return (
-    <>
-      {todos.map(todo => <Todo title={todo.title} description={todo.description} key={todo.id} />)}
-    </>
-  )
-
-  function Todo({ title, description }) {
-    return (
-        <div>
-          <h1>{title}</h1>
-          {description}
-        </div>
-    )
-  }
+  return <div>
+    <Todo id={1} />
+  </div>
 }
 
-export default App
+// eslint-disable-next-line react/prop-types
+function Todo({id}) {
+  const [todo, setTodo] = useState({});
+
+  useEffect(() => {
+    fetch("https://sum-server.100xdevs.com/todo?id=" + id)
+      .then(async function(res) {
+        const json = await res.json();
+        setTodo (json.todo);
+      })
+  }, [id])
+
+  return <div>
+    <h1>
+      {todo.title}
+    </h1>
+    <h4>
+      {todo.description}
+    </h4>
+  </div>
+}
+
+export default App;
