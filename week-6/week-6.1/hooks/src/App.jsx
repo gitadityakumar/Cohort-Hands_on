@@ -19,7 +19,7 @@ useEffect(() => {
       });
   }, 10000);
   
-  return () => clearInterval(1000);
+  return () => clearInterval(10);
   
 }, [])
   
