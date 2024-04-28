@@ -11,6 +11,10 @@
 
 ## Horizental Scaling 
 
- * This can be done via Auto Scaling groups , we'll be adding more servers and our app will run on those servers 
+ * Horizontal scaling represents increasing the number of instances you have based on a metric to be able to support more load.
+AWS has the concept of Auto scaling groups, which as the name suggests lets you autoscale the number of machines based on certain metrics.
+
 
  
+
+
