@@ -1,24 +1,22 @@
-import { Route } from 'react-router-dom'
-import { Routes } from 'react-router-dom'
+import { Route,BrowserRouter,Routes,  } from 'react-router-dom'
 import Dashboard from './components/Dashboard'
 import Landing from './components/Landing'
 import Register from './components/Register'
-
-import './App.css'
-import { BrowserRouter } from 'react-router-dom'
+import Appbar from './components/Appbar'
 
 function App() {
-  
+ 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/landing" element={<Landing />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-   
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+      <Appbar />
+        <Routes>
+          <Route path="/" element={<Landing/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 
