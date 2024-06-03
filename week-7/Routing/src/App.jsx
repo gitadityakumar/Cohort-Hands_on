@@ -12,17 +12,14 @@ function App() {
     <div>
       <BrowserRouter>
         <Appbar />
-        <Suspense fallback={
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-            <ClipLoader size={50} color={"#123abc"} loading={true} />
-          </div>
-        }>
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Routes>
-        </Suspense>
+            <Route path="/dashboard" element={<Suspense fallback={
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <ClipLoader size={50} color={"#123abc"} loading={true} />
+          </div>}><Dashboard/></Suspense>} />
+          </Routes> 
       </BrowserRouter>
     </div>
   );
