@@ -2,9 +2,8 @@ import   { lazy, Suspense } from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';  // Import a specific spinner from react-spinners
 import Appbar from './components/Appbar';
-
-const Landing = lazy(() => import('./components/Landing'));
-const Register = lazy(() => import('./components/Register'));
+import Landing from './components/Landing';
+import Register from './components/Register';
 const Dashboard = lazy(() => import('./components/Dashboard'));
 
 function App() {
