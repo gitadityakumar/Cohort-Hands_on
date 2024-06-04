@@ -10,8 +10,15 @@ function App() {
   return (
     <RecoilRoot>
      <Count/>
+     <EvenCountRenderer/>
     </RecoilRoot>
   )
+}
+
+function EvenCountRenderer(){
+  const count = useRecoilValue(countAtom);
+
+  return <h1>{count%2===0 ? ' It is Even' : ''}</h1>
 }
 
 // eslint-disable-next-line react/prop-types
