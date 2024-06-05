@@ -1,5 +1,6 @@
 import {  useRecoilValue } from "recoil"
-import { networkAtom,jobsAtom,notificationsAtom, messagingAtom,} from "./atom"
+import { networkAtom,jobsAtom,notificationsAtom, totalNotificationSelector,messagingAtom,} from "./atom"
+// import { useMemo } from "react";
 
 
 function App() {
@@ -8,6 +9,12 @@ function App() {
   const messagingNotificationCout = useRecoilValue(notificationsAtom);
   const notificationCout = useRecoilValue(messagingAtom);
   const finalvalue = networkNotificationCount >= 100 ? "99+" : networkNotificationCount;
+  const totalnotficaionCount = useRecoilValue(totalNotificationSelector)
+
+  //totalnotficaionCount can be calculted by this way using usememeo
+  // const totalnotficaionCount = useMemo(()=>{
+  //   return networkNotificationCount + jobsNotificationCout + messagingNotificationCout + notificationCout;
+  // },[networkNotificationCount,jobsNotificationCout,messagingNotificationCout,notificationCout])
 
   return (
     <>
@@ -18,7 +25,7 @@ function App() {
     <button>jobs({jobsNotificationCout})</button>
     <button>Messaging({messagingNotificationCout})</button>
     <button>Notifications ({notificationCout})</button>
-    <button>Me </button>
+    <button>Me({totalnotficaionCount}) </button>
    </>
   )
 }
