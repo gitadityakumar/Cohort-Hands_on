@@ -16,6 +16,8 @@ export const Card = () => {
         <div className="absolute bottom-0 right-0 bg-black bg-opacity-75 text-white text-xs px-1 py-0.5">
           24:17
         </div>
+        <hr className=' bg-red-500 w-[50%]  py-[1px]' />
+        
       </div>
       <div className="flex mt-2">
         <div className="flex-shrink-0">
