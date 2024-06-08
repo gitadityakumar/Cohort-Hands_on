@@ -29,4 +29,17 @@ const Dashboard = lazy(() => import('./components/Dashboard'));
 ```
 
 ## pro drilling
+Passing props is a great way to explicitly pipe data through your UI tree to the components that use it.
 
+But passing props can become verbose and inconvenient when you need to pass some prop deeply through the tree, or if many components need the same prop. The nearest common ancestor could be far removed from the components that need data, and lifting state up that high can lead to a situation called “prop drilling”
+## contextapi
+
+
+
+if we are not using redux or recoil then contextapi is the best way for state management 
+for optimal state management we can also use reducer/useReducer hook when we don't want to use statemanagement libraries.
+
+
+## Recoil selector vs useMemo hook use
+
+commit 26538d00e53db62fb10ac8ffaf3b1bc66beeb526 , in this commit work can be done using both but using selector is optimal approach bcz this is globally while useMemo is component specific . 
