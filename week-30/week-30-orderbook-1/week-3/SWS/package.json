@@ -1,0 +1,27 @@
+{
+  "name": "sws",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b && node ./dist/index.js",
+    "watch": "nodemon --exec ts-node ./src/index.ts",
+    "start": "tsc -b && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/ws": "^8.5.10",
+    "express": "latest",
+    "ws": "^8.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "latest",
+    "dotenv": "latest",
+    "nodemon": "latest",
+    "ts-node": "latest",
+    "typescript": "latest"
+  }
+}
