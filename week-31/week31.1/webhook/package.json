@@ -1,0 +1,25 @@
+{
+  "name": "webhook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b && node ./dist/index.js",
+    "watch": "nodemon --exec ts-node ./src/index.ts",
+    "start": "tsc -b && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "latest"
+  },
+  "devDependencies": {
+    "@types/express": "latest",
+    "typescript": "latest",
+    "ts-node": "latest",
+    "nodemon": "latest",
+    "dotenv": "latest"
+  }
+}
