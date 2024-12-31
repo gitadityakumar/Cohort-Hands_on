@@ -1,0 +1,20 @@
+{
+  "name": "cloudflareworker",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev --ip=127.0.0.1 --port=8787",
+    "test": "vitest",
+    "cf-typegen": "wrangler types"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.5.2",
+    "@cloudflare/workerd-linux-64": "'1.20241224.0",
+    "@cloudflare/workers-types": "^4.20241224.0",
+    "typescript": "^5.5.2",
+    "vitest": "2.1.8",
+    "wrangler": "^3.99.0"
+  }
+}
